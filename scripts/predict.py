@@ -30,34 +30,48 @@ os.makedirs("../logs", exist_ok=True)
 # Initialize Flask app
 app = Flask(__name__)
 
-# Global variable to store the model
+# Global variables to store the model and label encoder
 model = None
+label_encoder = None
 
 def load_model(model_path):
     """
-    Load the trained model from disk
+    Load the trained model and label encoder from disk
     
     Args:
         model_path (str): Path to the saved model
         
     Returns:
-        object: Loaded model
+        tuple: (loaded_model, label_encoder)
     """
     logger.info(f"Loading model from {model_path}")
     try:
         loaded_model = joblib.load(model_path)
         logger.info("Model loaded successfully")
-        return loaded_model
+        
+        # Load label encoder from the same directory
+        model_dir = os.path.dirname(model_path)
+        label_encoder_path = os.path.join(model_dir, 'label_encoder.joblib')
+        
+        if os.path.exists(label_encoder_path):
+            loaded_label_encoder = joblib.load(label_encoder_path)
+            logger.info("Label encoder loaded successfully")
+        else:
+            logger.warning("Label encoder not found, predictions will be numeric")
+            loaded_label_encoder = None
+            
+        return loaded_model, loaded_label_encoder
     except Exception as e:
         logger.error(f"Error loading model: {e}")
         raise
 
-@app.before_first_request
 def initialize():
-    """Initialize the model before the first request"""
-    global model
-    model_path = os.environ.get('MODEL_PATH', '../models/model.joblib')
-    model = load_model(model_path)
+    """Initialize the model and label encoder"""
+    global model, label_encoder
+    if model is None or label_encoder is None:
+        # Load the best performing model from research (Tuned Gradient Boosting - 0.7804 accuracy)
+        model_path = os.environ.get('MODEL_PATH', '../models/best_model_gradient_boosting.joblib')
+        model, label_encoder = load_model(model_path)
 
 @app.route('/health', methods=['GET'])
 def health():
@@ -72,12 +86,10 @@ def predict():
     Expects a JSON with student data in the request body
     Returns prediction and probability
     """
-    global model
+    global model, label_encoder
     
-    # Load model if not already loaded
-    if model is None:
-        model_path = os.environ.get('MODEL_PATH', '../models/model.joblib')
-        model = load_model(model_path)
+    # Initialize model and label encoder if not already loaded
+    initialize()
     
     # Get request data
     try:
@@ -87,14 +99,21 @@ def predict():
         # Convert to DataFrame
         input_data = pd.DataFrame([data])
         
-        # Make prediction
-        prediction = model.predict(input_data)[0]
+        # Make prediction (returns numeric label)
+        prediction_numeric = model.predict(input_data)[0]
+        
+        # Convert to original label if label encoder is available
+        if label_encoder is not None:
+            prediction = label_encoder.inverse_transform([prediction_numeric])[0]
+            classes = label_encoder.classes_.tolist()
+        else:
+            prediction = prediction_numeric
+            classes = [0, 1, 2]  # Default numeric classes
         
         # Get prediction probabilities
         probabilities = model.predict_proba(input_data)[0]
         
         # Create response
-        classes = model.classes_.tolist()
         proba_dict = {cls: float(prob) for cls, prob in zip(classes, probabilities)}
         
         response = {
@@ -117,18 +136,17 @@ def metadata():
     
     Returns information about the model and its features
     """
-    global model
+    global model, label_encoder
     
-    # Load model if not already loaded
-    if model is None:
-        model_path = os.environ.get('MODEL_PATH', '../models/model.joblib')
-        model = load_model(model_path)
+    # Initialize model and label encoder if not already loaded
+    initialize()
     
     try:
         # Get model metadata
+        classes = label_encoder.classes_.tolist() if label_encoder else [0, 1, 2]
         metadata = {
             'model_type': type(model.named_steps['classifier']).__name__,
-            'classes': model.classes_.tolist(),
+            'classes': classes,
             'feature_preprocessing': {
                 'numerical_features': model.named_steps['preprocessor'].transformers_[0][2],
                 'categorical_features': model.named_steps['preprocessor'].transformers_[1][2]
@@ -137,7 +155,7 @@ def metadata():
         }
         
         # Try to load metrics if available
-        metrics_path = os.path.join(os.path.dirname(os.environ.get('MODEL_PATH', '../models/model.joblib')), 'metrics.json')
+        metrics_path = os.path.join(os.path.dirname(os.environ.get('MODEL_PATH', '../models/best_model_gradient_boosting.joblib')), 'metrics.json')
         if os.path.exists(metrics_path):
             with open(metrics_path, 'r') as f:
                 metrics = json.load(f)
@@ -157,12 +175,10 @@ def batch_predict():
     Expects a JSON with an array of student data in the request body
     Returns predictions and probabilities for each input
     """
-    global model
+    global model, label_encoder
     
-    # Load model if not already loaded
-    if model is None:
-        model_path = os.environ.get('MODEL_PATH', '../models/model.joblib')
-        model = load_model(model_path)
+    # Initialize model and label encoder if not already loaded
+    initialize()
     
     # Get request data
     try:
@@ -172,14 +188,21 @@ def batch_predict():
         # Convert to DataFrame
         input_data = pd.DataFrame(data)
         
-        # Make predictions
-        predictions = model.predict(input_data).tolist()
+        # Make predictions (returns numeric labels)
+        predictions_numeric = model.predict(input_data)
+        
+        # Convert to original labels if label encoder is available
+        if label_encoder is not None:
+            predictions = label_encoder.inverse_transform(predictions_numeric).tolist()
+            classes = label_encoder.classes_.tolist()
+        else:
+            predictions = predictions_numeric.tolist()
+            classes = [0, 1, 2]  # Default numeric classes
         
         # Get prediction probabilities
         probabilities = model.predict_proba(input_data)
         
         # Create response
-        classes = model.classes_.tolist()
         results = []
         
         for i, pred in enumerate(predictions):
@@ -209,12 +232,10 @@ def example_input():
     
     Returns an example of the expected input format
     """
-    global model
+    global model, label_encoder
     
-    # Load model if not already loaded
-    if model is None:
-        model_path = os.environ.get('MODEL_PATH', '../models/model.joblib')
-        model = load_model(model_path)
+    # Initialize model and label encoder if not already loaded
+    initialize()
     
     try:
         # Get feature names from the model
@@ -246,9 +267,8 @@ if __name__ == "__main__":
     port = int(os.environ.get('PORT', 8080))
     debug = os.environ.get('DEBUG', 'False').lower() == 'true'
     
-    # Initialize model
-    model_path = os.environ.get('MODEL_PATH', '../models/model.joblib')
-    model = load_model(model_path)
+    # Initialize model and label encoder
+    initialize()
     
     # Run the app
     logger.info(f"Starting prediction service on port {port}")

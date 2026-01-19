@@ -1,0 +1,157 @@
+2026-01-19 16:07:09,452 - __main__ - INFO - Loading data from ../data/dataset.csv
+2026-01-19 16:07:09,478 - __main__ - INFO - Data loaded successfully. Shape: (4424, 37)
+2026-01-19 16:07:09,478 - __main__ - INFO - Preprocessing data...
+2026-01-19 16:07:09,485 - __main__ - INFO - Categorical columns: 0
+2026-01-19 16:07:09,486 - __main__ - INFO - Numerical columns: 36
+2026-01-19 16:07:09,493 - __main__ - INFO - Training set size: (3539, 36)
+2026-01-19 16:07:09,494 - __main__ - INFO - Test set size: (885, 36)
+2026-01-19 16:07:09,494 - __main__ - INFO - Class distribution in training set:
+2026-01-19 16:07:09,496 - __main__ - INFO - Target
+Graduate    0.499294
+Dropout     0.321277
+Enrolled    0.179429
+Name: proportion, dtype: float64
+2026-01-19 16:07:09,500 - __main__ - INFO - Training XGBoost model...
+2026-01-19 16:19:09,635 - __main__ - INFO - Loading data from ../data/dataset.csv
+2026-01-19 16:19:09,647 - __main__ - INFO - Data loaded successfully. Shape: (4424, 37)
+2026-01-19 16:19:09,648 - __main__ - INFO - Preprocessing data...
+2026-01-19 16:19:09,649 - __main__ - INFO - Target label mapping: {'Dropout': 0, 'Enrolled': 1, 'Graduate': 2}
+2026-01-19 16:19:09,650 - __main__ - INFO - Categorical columns: 0
+2026-01-19 16:19:09,651 - __main__ - INFO - Numerical columns: 36
+2026-01-19 16:19:09,655 - __main__ - INFO - Training set size: (3539, 36)
+2026-01-19 16:19:09,655 - __main__ - INFO - Test set size: (885, 36)
+2026-01-19 16:19:09,655 - __main__ - INFO - Class distribution in training set:
+2026-01-19 16:19:09,656 - __main__ - INFO - Dropout: 0.321277
+2026-01-19 16:19:09,656 - __main__ - INFO - Enrolled: 0.179429
+2026-01-19 16:19:09,656 - __main__ - INFO - Graduate: 0.499294
+2026-01-19 16:19:09,657 - __main__ - INFO - Training XGBoost model...
+2026-01-19 16:19:10,944 - __main__ - INFO - Model training completed
+2026-01-19 16:19:10,945 - __main__ - INFO - Evaluating model...
+2026-01-19 16:19:10,972 - __main__ - INFO - Accuracy: 0.7695
+2026-01-19 16:19:10,972 - __main__ - INFO - F1 Score (macro): 0.7021
+2026-01-19 16:19:11,007 - __main__ - INFO - 
+Classification Report:
+2026-01-19 16:19:11,057 - __main__ - INFO -               precision    recall  f1-score   support
+
+     Dropout       0.80      0.75      0.78       284
+    Enrolled       0.54      0.42      0.48       159
+    Graduate       0.81      0.90      0.85       442
+
+    accuracy                           0.77       885
+   macro avg       0.72      0.69      0.70       885
+weighted avg       0.76      0.77      0.76       885
+
+2026-01-19 16:19:15,184 - __main__ - INFO - Evaluation metrics saved to ../models/metrics.json
+2026-01-19 16:19:15,185 - __main__ - INFO - Saving model to ../models\model.joblib
+2026-01-19 16:19:15,222 - __main__ - INFO - Model saved successfully
+2026-01-19 16:19:15,226 - __main__ - INFO - Label encoder saved to ../models\label_encoder.joblib
+2026-01-19 16:19:15,259 - __main__ - WARNING - Could not save feature importance: This SimpleImputer instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+2026-01-19 16:19:15,260 - __main__ - INFO - Training completed successfully
+2026-01-19 16:56:25,349 - __main__ - INFO - Loading data from ../data/dataset.csv
+2026-01-19 16:56:25,382 - __main__ - INFO - Data loaded successfully. Shape: (4424, 37)
+2026-01-19 16:56:25,382 - __main__ - INFO - Preprocessing data...
+2026-01-19 16:56:25,387 - __main__ - INFO - Target label mapping: {'Dropout': 0, 'Enrolled': 1, 'Graduate': 2}
+2026-01-19 16:56:25,389 - __main__ - INFO - Categorical columns: 0
+2026-01-19 16:56:25,390 - __main__ - INFO - Numerical columns: 36
+2026-01-19 16:56:25,400 - __main__ - INFO - Training set size: (3539, 36)
+2026-01-19 16:56:25,401 - __main__ - INFO - Test set size: (885, 36)
+2026-01-19 16:56:25,402 - __main__ - INFO - Class distribution in training set:
+2026-01-19 16:56:25,403 - __main__ - INFO - Dropout: 0.321277
+2026-01-19 16:56:25,404 - __main__ - INFO - Enrolled: 0.179429
+2026-01-19 16:56:25,405 - __main__ - INFO - Graduate: 0.499294
+2026-01-19 16:56:25,405 - __main__ - INFO - Training Gradient Boosting model...
+2026-01-19 16:56:34,004 - __main__ - INFO - Model training completed
+2026-01-19 16:56:34,005 - __main__ - INFO - Evaluating model...
+2026-01-19 16:56:34,021 - __main__ - INFO - Accuracy: 0.7661
+2026-01-19 16:56:34,022 - __main__ - INFO - F1 Score (macro): 0.7008
+2026-01-19 16:56:34,039 - __main__ - INFO - 
+Classification Report:
+2026-01-19 16:56:34,054 - __main__ - INFO -               precision    recall  f1-score   support
+
+     Dropout       0.80      0.73      0.76       284
+    Enrolled       0.52      0.45      0.48       159
+    Graduate       0.82      0.90      0.86       442
+
+    accuracy                           0.77       885
+   macro avg       0.71      0.69      0.70       885
+weighted avg       0.76      0.77      0.76       885
+
+2026-01-19 16:56:34,578 - __main__ - INFO - Evaluation metrics saved to ../models/metrics.json
+2026-01-19 16:56:34,578 - __main__ - INFO - Saving model to ../models\model.joblib
+2026-01-19 16:56:34,609 - __main__ - INFO - Model saved successfully
+2026-01-19 16:56:34,611 - __main__ - INFO - Label encoder saved to ../models\label_encoder.joblib
+2026-01-19 16:56:34,633 - __main__ - WARNING - Could not save feature importance: This SimpleImputer instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+2026-01-19 16:56:34,634 - __main__ - INFO - Training completed successfully
+2026-01-19 16:57:36,357 - __main__ - INFO - Loading data from ../data/dataset.csv
+2026-01-19 16:57:36,376 - __main__ - INFO - Data loaded successfully. Shape: (4424, 37)
+2026-01-19 16:57:36,376 - __main__ - INFO - Preprocessing data...
+2026-01-19 16:57:36,380 - __main__ - INFO - Target label mapping: {'Dropout': 0, 'Enrolled': 1, 'Graduate': 2}
+2026-01-19 16:57:36,381 - __main__ - INFO - Categorical columns: 0
+2026-01-19 16:57:36,382 - __main__ - INFO - Numerical columns: 36
+2026-01-19 16:57:36,394 - __main__ - INFO - Training set size: (3539, 36)
+2026-01-19 16:57:36,395 - __main__ - INFO - Test set size: (885, 36)
+2026-01-19 16:57:36,396 - __main__ - INFO - Class distribution in training set:
+2026-01-19 16:57:36,396 - __main__ - INFO - Dropout: 0.321277
+2026-01-19 16:57:36,396 - __main__ - INFO - Enrolled: 0.179429
+2026-01-19 16:57:36,397 - __main__ - INFO - Graduate: 0.499294
+2026-01-19 16:57:36,397 - __main__ - INFO - Training Gradient Boosting model...
+2026-01-19 16:57:41,862 - __main__ - INFO - Model training completed
+2026-01-19 16:57:41,862 - __main__ - INFO - Evaluating model...
+2026-01-19 16:57:41,875 - __main__ - INFO - Accuracy: 0.7661
+2026-01-19 16:57:41,876 - __main__ - INFO - F1 Score (macro): 0.7008
+2026-01-19 16:57:41,892 - __main__ - INFO - 
+Classification Report:
+2026-01-19 16:57:41,899 - __main__ - INFO -               precision    recall  f1-score   support
+
+     Dropout       0.80      0.73      0.76       284
+    Enrolled       0.52      0.45      0.48       159
+    Graduate       0.82      0.90      0.86       442
+
+    accuracy                           0.77       885
+   macro avg       0.71      0.69      0.70       885
+weighted avg       0.76      0.77      0.76       885
+
+2026-01-19 16:57:42,439 - __main__ - INFO - Evaluation metrics saved to ../models/metrics.json
+2026-01-19 16:57:42,439 - __main__ - INFO - Saving model to ../models\model.joblib
+2026-01-19 16:57:42,471 - __main__ - INFO - Model saved successfully
+2026-01-19 16:57:42,474 - __main__ - INFO - Label encoder saved to ../models\label_encoder.joblib
+2026-01-19 16:57:42,499 - __main__ - WARNING - Could not save feature importance: This SimpleImputer instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+2026-01-19 16:57:42,500 - __main__ - INFO - Training completed successfully
+2026-01-19 17:02:34,967 - __main__ - INFO - Loading data from ../data/dataset.csv
+2026-01-19 17:02:34,989 - __main__ - INFO - Data loaded successfully. Shape: (4424, 37)
+2026-01-19 17:02:34,989 - __main__ - INFO - Preprocessing data...
+2026-01-19 17:02:34,992 - __main__ - INFO - Target label mapping: {'Dropout': 0, 'Enrolled': 1, 'Graduate': 2}
+2026-01-19 17:02:34,994 - __main__ - INFO - Categorical columns: 0
+2026-01-19 17:02:34,994 - __main__ - INFO - Numerical columns: 36
+2026-01-19 17:02:35,001 - __main__ - INFO - Training set size: (3539, 36)
+2026-01-19 17:02:35,002 - __main__ - INFO - Test set size: (885, 36)
+2026-01-19 17:02:35,003 - __main__ - INFO - Class distribution in training set:
+2026-01-19 17:02:35,004 - __main__ - INFO - Dropout: 0.321277
+2026-01-19 17:02:35,004 - __main__ - INFO - Enrolled: 0.179429
+2026-01-19 17:02:35,004 - __main__ - INFO - Graduate: 0.499294
+2026-01-19 17:02:35,004 - __main__ - INFO - Training Gradient Boosting model...
+2026-01-19 17:02:42,352 - __main__ - INFO - Model training completed
+2026-01-19 17:02:42,352 - __main__ - INFO - Performing cross-validation evaluation...
+2026-01-19 17:03:13,897 - __main__ - INFO - Cross-validation accuracy: 0.7779 (+/- 0.0210)
+2026-01-19 17:03:13,898 - __main__ - INFO - CV scores: ['0.7867', '0.7839', '0.7881', '0.7684', '0.7624']
+2026-01-19 17:03:13,898 - __main__ - INFO - Evaluating model...
+2026-01-19 17:03:13,910 - __main__ - INFO - Accuracy: 0.7661
+2026-01-19 17:03:13,910 - __main__ - INFO - F1 Score (macro): 0.7008
+2026-01-19 17:03:13,921 - __main__ - INFO - 
+Classification Report:
+2026-01-19 17:03:13,931 - __main__ - INFO -               precision    recall  f1-score   support
+
+     Dropout       0.80      0.73      0.76       284
+    Enrolled       0.52      0.45      0.48       159
+    Graduate       0.82      0.90      0.86       442
+
+    accuracy                           0.77       885
+   macro avg       0.71      0.69      0.70       885
+weighted avg       0.76      0.77      0.76       885
+
+2026-01-19 17:03:14,485 - __main__ - INFO - Evaluation metrics saved to ../models/metrics.json
+2026-01-19 17:03:14,485 - __main__ - INFO - Saving model to ../models\best_model_gradient_boosting.joblib
+2026-01-19 17:03:14,555 - __main__ - INFO - Model saved successfully
+2026-01-19 17:03:14,567 - __main__ - INFO - Label encoder saved to ../models\label_encoder.joblib
+2026-01-19 17:03:15,664 - __main__ - INFO - Feature importance saved to ../models/feature_importance.csv
+2026-01-19 17:03:15,665 - __main__ - INFO - Training completed successfully

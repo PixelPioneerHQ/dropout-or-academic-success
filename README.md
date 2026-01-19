@@ -36,8 +36,7 @@ capstone-2/
 │   ├── business_impact.md    # Business impact analysis
 │   └── gcp_deployment.md     # GCP deployment guide
 ├── notebook/           # Jupyter notebooks for exploration and modeling
-│   ├── student_dropout_exploration.py  # Data exploration
-│   └── student_dropout_modeling.py     # Model training and evaluation
+│   └── student_dropout_analysis.py     # Data exploration & Model training and evaluation
 ├── models/             # Saved model files
 ├── scripts/            # Python scripts for training and prediction
 │   ├── download_data.py      # Script to download dataset from Kaggle
@@ -129,7 +128,7 @@ python scripts/predict.py
 
 7. Test the prediction service:
 ```bash
-python scripts/test_prediction.py --url http://localhost:8080
+   python scripts/test_prediction.py --url http://localhost:8080
 ```
 
 ### Docker Setup

@@ -9,19 +9,23 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.model_selection import train_test_split, StratifiedKFold
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.model_selection import train_test_split, StratifiedKFold, cross_val_score
+from sklearn.preprocessing import StandardScaler, OneHotEncoder, LabelEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.metrics import accuracy_score, f1_score, classification_report, confusion_matrix
-import xgboost as xgb
+from sklearn.ensemble import GradientBoostingClassifier
 import joblib
 import os
 import argparse
 import json
 import logging
 from datetime import datetime
+
+# Create logs directory if it doesn't exist
+os.makedirs("../logs", exist_ok=True)
+os.makedirs("../models", exist_ok=True)
 
 # Set up logging
 logging.basicConfig(
@@ -34,9 +38,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Create logs directory if it doesn't exist
-os.makedirs("../logs", exist_ok=True)
-os.makedirs("../models", exist_ok=True)
 
 # Set random seed for reproducibility
 RANDOM_STATE = 42
@@ -70,13 +71,19 @@ def preprocess_data(df, target_col):
         target_col (str): Name of the target column
         
     Returns:
-        tuple: X_train, X_test, y_train, y_test, preprocessor
+        tuple: X_train, X_test, y_train, y_test, preprocessor, label_encoder
     """
     logger.info("Preprocessing data...")
     
     # Split features and target
     X = df.drop(columns=[target_col])
     y = df[target_col]
+    
+    # Encode target labels for XGBoost (string to numeric)
+    label_encoder = LabelEncoder()
+    y_encoded = label_encoder.fit_transform(y)
+    
+    logger.info(f"Target label mapping: {dict(zip(label_encoder.classes_, range(len(label_encoder.classes_))))}")
     
     # Identify categorical and numerical columns
     categorical_cols = X.select_dtypes(include=['object', 'category']).columns.tolist()
@@ -105,7 +112,7 @@ def preprocess_data(df, target_col):
     
     # Split data into train and test sets using stratification
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=RANDOM_STATE, stratify=y
+        X, y_encoded, test_size=0.2, random_state=RANDOM_STATE, stratify=y_encoded
     )
     
     logger.info(f"Training set size: {X_train.shape}")
@@ -113,13 +120,17 @@ def preprocess_data(df, target_col):
     
     # Check class distribution
     logger.info("Class distribution in training set:")
-    logger.info(y_train.value_counts(normalize=True))
+    unique, counts = np.unique(y_train, return_counts=True)
+    for i, (label_idx, count) in enumerate(zip(unique, counts)):
+        label_name = label_encoder.classes_[label_idx]
+        proportion = count / len(y_train)
+        logger.info(f"{label_name}: {proportion:.6f}")
     
-    return X_train, X_test, y_train, y_test, preprocessor
+    return X_train, X_test, y_train, y_test, preprocessor, label_encoder
 
 def train_model(X_train, y_train, preprocessor, model_params=None):
     """
-    Train the XGBoost model with the given parameters
+    Train the Gradient Boosting model with the given parameters
     
     Args:
         X_train (pd.DataFrame): Training features
@@ -130,38 +141,48 @@ def train_model(X_train, y_train, preprocessor, model_params=None):
     Returns:
         Pipeline: Trained model pipeline
     """
-    logger.info("Training XGBoost model...")
+    logger.info("Training Gradient Boosting model...")
     
-    # Default parameters if none provided
+    # Best parameters from hyperparameter tuning research (0.7804 accuracy)
     if model_params is None:
         model_params = {
-            'n_estimators': 200,
-            'max_depth': 6,
-            'learning_rate': 0.1,
-            'subsample': 0.8,
-            'colsample_bytree': 0.8,
+            'n_estimators': 203,
+            'learning_rate': 0.12817293807879568,
+            'max_depth': 3,
+            'min_samples_split': 10,
+            'min_samples_leaf': 4,
+            'subsample': 0.9100610703174814,
             'random_state': RANDOM_STATE
         }
     
     # Create and train the pipeline
     model = Pipeline(steps=[
         ('preprocessor', preprocessor),
-        ('classifier', xgb.XGBClassifier(**model_params))
+        ('classifier', GradientBoostingClassifier(**model_params))
     ])
     
     model.fit(X_train, y_train)
     logger.info("Model training completed")
     
+    # Perform cross-validation to show research-comparable performance
+    logger.info("Performing cross-validation evaluation...")
+    cv_scores = cross_val_score(model, X_train, y_train, cv=StratifiedKFold(n_splits=5, shuffle=True, random_state=RANDOM_STATE), scoring='accuracy')
+    cv_mean = cv_scores.mean()
+    cv_std = cv_scores.std()
+    logger.info(f"Cross-validation accuracy: {cv_mean:.4f} (+/- {cv_std*2:.4f})")
+    logger.info(f"CV scores: {[f'{score:.4f}' for score in cv_scores]}")
+    
     return model
 
-def evaluate_model(model, X_test, y_test, output_dir):
+def evaluate_model(model, X_test, y_test, label_encoder, output_dir):
     """
     Evaluate the model and save evaluation metrics
     
     Args:
         model (Pipeline): Trained model pipeline
         X_test (pd.DataFrame): Test features
-        y_test (pd.Series): Test target
+        y_test (pd.Series): Test target (encoded)
+        label_encoder (LabelEncoder): Label encoder for target variable
         output_dir (str): Directory to save evaluation results
         
     Returns:
@@ -179,19 +200,23 @@ def evaluate_model(model, X_test, y_test, output_dir):
     logger.info(f"Accuracy: {accuracy:.4f}")
     logger.info(f"F1 Score (macro): {f1:.4f}")
     
+    # Convert predictions and true values back to original labels for reporting
+    y_test_original = label_encoder.inverse_transform(y_test)
+    y_pred_original = label_encoder.inverse_transform(y_pred)
+    
     # Generate classification report
-    report = classification_report(y_test, y_pred, output_dict=True)
+    report = classification_report(y_test_original, y_pred_original, output_dict=True)
     logger.info("\nClassification Report:")
-    logger.info(classification_report(y_test, y_pred))
+    logger.info(classification_report(y_test_original, y_pred_original))
     
     # Generate confusion matrix
     cm = confusion_matrix(y_test, y_pred)
     
     # Save confusion matrix plot
     plt.figure(figsize=(8, 6))
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', 
-                xticklabels=model.classes_, 
-                yticklabels=model.classes_)
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
+                xticklabels=label_encoder.classes_,
+                yticklabels=label_encoder.classes_)
     plt.xlabel('Predicted')
     plt.ylabel('True')
     plt.title('Confusion Matrix')
@@ -246,36 +271,45 @@ def main(data_path, target_col, output_dir, model_params=None):
     df = load_data(data_path)
     
     # Preprocess data
-    X_train, X_test, y_train, y_test, preprocessor = preprocess_data(df, target_col)
+    X_train, X_test, y_train, y_test, preprocessor, label_encoder = preprocess_data(df, target_col)
     
     # Train model
     model = train_model(X_train, y_train, preprocessor, model_params)
     
     # Evaluate model
-    metrics = evaluate_model(model, X_test, y_test, output_dir)
+    metrics = evaluate_model(model, X_test, y_test, label_encoder, output_dir)
     
-    # Save model
-    model_path = os.path.join(output_dir, 'model.joblib')
+    # Save model with the proper name for best model
+    model_path = os.path.join(output_dir, 'best_model_gradient_boosting.joblib')
     save_model(model, model_path)
+    
+    # Save label encoder
+    label_encoder_path = os.path.join(output_dir, 'label_encoder.joblib')
+    joblib.dump(label_encoder, label_encoder_path)
+    logger.info(f"Label encoder saved to {label_encoder_path}")
     
     # Save feature importance if available
     try:
-        # Get feature names after preprocessing
-        preprocessor.fit(X_train)
-        feature_names = []
+        # Get feature names from the fitted model preprocessor (same approach as notebook)
+        fitted_preprocessor = model.named_steps['preprocessor']
         
-        # Get numerical feature names
-        if hasattr(preprocessor.named_transformers_['num'], 'get_feature_names_out'):
-            num_features = preprocessor.named_transformers_['num'].get_feature_names_out()
-            feature_names.extend(num_features)
-        else:
+        # Try to get feature names directly from the fitted preprocessor
+        try:
+            feature_names = list(fitted_preprocessor.get_feature_names_out())
+        except:
+            # Fallback: manually construct feature names
+            feature_names = []
+            
+            # Add numerical feature names
             num_cols = X_train.select_dtypes(include=['int64', 'float64']).columns.tolist()
             feature_names.extend(num_cols)
-        
-        # Get categorical feature names
-        if hasattr(preprocessor.named_transformers_['cat'], 'get_feature_names_out'):
-            cat_features = preprocessor.named_transformers_['cat'].get_feature_names_out()
-            feature_names.extend(cat_features)
+            
+            # Add categorical feature names (manually construct one-hot encoded names)
+            cat_cols = X_train.select_dtypes(include=['object', 'category']).columns.tolist()
+            for col in cat_cols:
+                unique_values = X_train[col].unique()
+                for val in unique_values:
+                    feature_names.append(f"{col}_{val}")
         
         # Get feature importance from the model
         feature_importance = model.named_steps['classifier'].feature_importances_
@@ -292,7 +326,7 @@ def main(data_path, target_col, output_dir, model_params=None):
         # Plot feature importance
         plt.figure(figsize=(12, 8))
         sns.barplot(x='Importance', y='Feature', data=importance_df.head(20))
-        plt.title('Top 20 Feature Importance')
+        plt.title('Top 20 Feature Importance - Gradient Boosting')
         plt.tight_layout()
         plt.savefig(os.path.join(output_dir, 'feature_importance.png'))
         plt.close()
@@ -316,13 +350,14 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
     
-    # Best parameters from hyperparameter tuning
+    # Best parameters from hyperparameter tuning research (achieves 0.7804 accuracy)
     best_params = {
-        'n_estimators': 200,
-        'max_depth': 6,
-        'learning_rate': 0.1,
-        'subsample': 0.8,
-        'colsample_bytree': 0.8,
+        'n_estimators': 203,
+        'learning_rate': 0.12817293807879568,
+        'max_depth': 3,
+        'min_samples_split': 10,
+        'min_samples_leaf': 4,
+        'subsample': 0.9100610703174814,
         'random_state': RANDOM_STATE
     }
     

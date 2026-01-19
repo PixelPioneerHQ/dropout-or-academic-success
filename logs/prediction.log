@@ -1,0 +1,661 @@
+2026-01-19 17:13:28,107 - __main__ - INFO - Loading model from ../models/best_model_gradient_boosting.joblib
+2026-01-19 17:13:33,203 - __main__ - INFO - Model loaded successfully
+2026-01-19 17:13:33,204 - __main__ - INFO - Label encoder loaded successfully
+2026-01-19 17:13:33,205 - __main__ - INFO - Starting prediction service on port 8080
+2026-01-19 17:13:33,491 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.1.2.210:8080
+2026-01-19 17:13:33,493 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-01-19 17:13:48,907 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:13:48] "[33mGET / HTTP/1.1[0m" 404 -
+2026-01-19 17:13:49,658 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:13:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-01-19 17:14:34,475 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:34] "GET /health HTTP/1.1" 200 -
+2026-01-19 17:14:36,521 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:36] "GET /metadata HTTP/1.1" 200 -
+2026-01-19 17:14:38,546 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:38] "GET /example HTTP/1.1" 200 -
+2026-01-19 17:14:40,587 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:40] "GET /example HTTP/1.1" 200 -
+2026-01-19 17:14:42,622 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:42,639 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:42,643 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:42] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:44,699 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:44] "GET /example HTTP/1.1" 200 -
+2026-01-19 17:14:46,808 - __main__ - INFO - Received batch prediction request with 5 samples
+2026-01-19 17:14:46,825 - __main__ - INFO - Batch prediction completed for 5 samples
+2026-01-19 17:14:46,827 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:46] "POST /predict/batch HTTP/1.1" 200 -
+2026-01-19 17:14:48,880 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:48] "GET /example HTTP/1.1" 200 -
+2026-01-19 17:14:50,931 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:50,942 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:50,943 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:50,945 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:50] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:50,953 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:50,953 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:50,954 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:50] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:50,960 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:50,961 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:50,961 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:50,962 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:50,963 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:50] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:50,963 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:50,970 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:50,971 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:50,981 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:50,986 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:50,993 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:50,998 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:51,000 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:51] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:51,001 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:51,014 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:51,015 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:51] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:51,015 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:51] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:51,022 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:51] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:51,028 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:51,043 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:51,045 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:51] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:51,051 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:51] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:51,054 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:51] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:53,004 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:53,009 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:53,019 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:53,022 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:53,022 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:53] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:53,023 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:53] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:53,024 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:53,031 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:53,032 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:53] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:53,063 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:53,075 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:53,076 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:53] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:53,083 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:53,092 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:53,099 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:53,110 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:53] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:53,116 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:53,117 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:53,119 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:53] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:53,133 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:53,138 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:53,157 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:53,158 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:53,159 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:53] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:53,160 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:53,161 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:53] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:53,176 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:53,194 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:53,197 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:53] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:53,199 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:53] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:55,059 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:55,072 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:55,072 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:55,074 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:55] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:55,083 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:55,088 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:55,097 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:55] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:55,103 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:55,104 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:55] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:55,130 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:55,141 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:55,142 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:55] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:55,166 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:55,181 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:55,183 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:55] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:55,184 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:55,200 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:55,203 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:55] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:55,212 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:55,228 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:55,229 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:55,230 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:55] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:55,245 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:55,248 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:55] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:55,249 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:55,268 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:55,269 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:55,270 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:55] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:55,285 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:55,287 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:55] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:57,138 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:57,163 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:57,164 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:57] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:57,166 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:57,171 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:57,192 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:57,217 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:57,218 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:57,219 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:57] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:57,222 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:57] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:57,241 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:57,250 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:57,255 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:57,289 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:57,290 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:57] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:57,308 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:57] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:57,309 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:57,318 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:57,321 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:57,337 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:57,337 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:57] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:57,349 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:57,361 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:57,362 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:57] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:57,377 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:57,390 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:57] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:57,397 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:57,418 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:57,423 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:57] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:57,424 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:57] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:59,209 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:59,218 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:59,218 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:59] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:59,295 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:59,308 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:59,309 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:59,309 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:59] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:59,323 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:59,325 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:59] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:59,357 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:59,370 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:59,371 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:59,372 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:59] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:59,387 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:59,391 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:59] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:59,393 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:59,413 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:59,414 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:59] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:59,437 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:59,452 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:59,453 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:59] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:59,466 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:59,481 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:59,483 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:59] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:59,484 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:59,502 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:59,505 - __main__ - INFO - Received prediction request
+2026-01-19 17:14:59,506 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:59] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:14:59,521 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:14:59,523 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:14:59] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:01,261 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:01,289 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:01,291 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:01] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:01,371 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:01,397 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:01,399 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:01,401 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:01] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:01,431 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:01,437 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:01,441 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:01] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:01,469 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:01,470 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:01,472 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:01] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:01,474 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:01,504 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:01,507 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:01,529 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:01] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:01,559 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:01,601 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:01,604 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:01,605 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:01] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:01,611 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:01,705 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:01] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:01,730 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:01,731 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:01,753 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:01,757 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:01] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:01,788 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:01] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:01,799 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:01,801 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:01] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:03,335 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:03,346 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:03,346 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:03] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:03,477 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:03,489 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:03,490 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:03] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:03,505 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:03,518 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:03,519 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:03] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:03,545 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:03,558 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:03,559 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:03] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:03,643 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:03,655 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:03,656 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:03] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:03,774 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:03,790 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:03,792 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:03,792 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:03] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:03,807 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:03,808 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:03] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:03,876 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:03,890 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:03,900 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:03,903 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:03,903 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:03] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:03,904 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:03,905 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:03] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:03,921 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:03,921 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:03] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:05,370 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:05,381 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:05,382 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:05] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:05,530 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:05,540 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:05,540 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:05] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:05,552 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:05,560 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:05,560 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:05] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:05,580 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:05,594 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:05,595 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:05] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:05,688 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:05,707 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:05,710 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:05] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:05,867 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:05,868 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:05,879 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:05,887 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:05,888 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:05] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:05,888 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:05] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:05,938 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:05,956 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:05,957 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:05,958 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:05] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:05,973 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:05,974 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:05,976 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:05] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:05,994 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:05,995 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:05] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:07,416 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:07,431 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:07,432 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:07] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:07,573 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:07,585 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:07,586 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:07] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:07,590 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:07,599 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:07,600 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:07] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:07,640 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:07,653 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:07,654 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:07] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:07,767 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:07,786 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:07,787 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:07] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:07,930 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:07,945 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:07,946 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:07,946 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:07] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:07,957 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:07,958 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:07] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:08,020 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:08,033 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:08,037 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:08] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:08,038 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:08,043 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:08,055 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:08,068 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:08,068 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:08] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:08,070 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:08] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:09,489 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:09,498 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:09,499 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:09] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:09,608 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:09,629 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:09,631 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:09] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:09,632 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:09,648 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:09,651 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:09] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:09,684 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:09,700 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:09,701 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:09] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:09,842 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:09,855 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:09,856 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:09] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:09,998 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:10,009 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:10,023 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:10,024 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:10,025 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:10] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:10,026 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:10] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:10,087 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:10,102 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:10,102 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:10] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:10,112 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:10,119 - __main__ - INFO - Received prediction request
+2026-01-19 17:15:10,128 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:10,134 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:10] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:15:10,136 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:15:10,137 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:15:10] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:23:18,254 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:23:18] "GET /health HTTP/1.1" 200 -
+2026-01-19 17:23:20,352 - __main__ - INFO - Received prediction request
+2026-01-19 17:23:20,367 - __main__ - INFO - Prediction: Graduate
+2026-01-19 17:23:20,368 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:23:20] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:23:22,398 - __main__ - INFO - Received prediction request
+2026-01-19 17:23:22,407 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:23:22,408 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:23:22] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:23:24,469 - __main__ - INFO - Received prediction request
+2026-01-19 17:23:24,483 - __main__ - INFO - Prediction: Graduate
+2026-01-19 17:23:24,486 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:23:24] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:23:26,531 - __main__ - INFO - Received prediction request
+2026-01-19 17:23:26,546 - __main__ - INFO - Prediction: Graduate
+2026-01-19 17:23:26,547 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:23:26] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:23:28,604 - __main__ - INFO - Received prediction request
+2026-01-19 17:23:28,620 - __main__ - INFO - Prediction: Graduate
+2026-01-19 17:23:28,621 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:23:28] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:23:30,676 - __main__ - INFO - Received batch prediction request with 5 samples
+2026-01-19 17:23:30,694 - __main__ - INFO - Batch prediction completed for 5 samples
+2026-01-19 17:23:30,695 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:23:30] "POST /predict/batch HTTP/1.1" 200 -
+2026-01-19 17:29:55,032 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:29:55] "GET /health HTTP/1.1" 200 -
+2026-01-19 17:29:57,102 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:29:57] "GET /metadata HTTP/1.1" 200 -
+2026-01-19 17:29:59,171 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:29:59] "GET /example HTTP/1.1" 200 -
+2026-01-19 17:30:01,194 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:01,218 - __main__ - INFO - Prediction: Graduate
+2026-01-19 17:30:01,219 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:01] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:03,277 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:03,290 - __main__ - INFO - Prediction: Graduate
+2026-01-19 17:30:03,291 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:03] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:05,347 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:05,361 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:05,362 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:05] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:07,409 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:07,421 - __main__ - INFO - Prediction: Graduate
+2026-01-19 17:30:07,422 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:07] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:09,481 - __main__ - INFO - Received batch prediction request with 3 samples
+2026-01-19 17:30:09,495 - __main__ - INFO - Batch prediction completed for 3 samples
+2026-01-19 17:30:09,496 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:09] "POST /predict/batch HTTP/1.1" 200 -
+2026-01-19 17:30:11,557 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:11] "GET /example HTTP/1.1" 200 -
+2026-01-19 17:30:13,632 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:13,646 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:13,647 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:13,648 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:13] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:13,657 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:13,664 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:13,665 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:13,676 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:13] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:13,682 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:13,684 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:13,697 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:13,699 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:13,700 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:13] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:13,714 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:13,714 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:13] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:13,715 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:13,716 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:13,728 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:13,729 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:13] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:13,729 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:13,732 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:13,752 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:13,752 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:13] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:13,755 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:13,764 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:13,773 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:13,773 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:13] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:13,774 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:13] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:13,774 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:13] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:13,775 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:13] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:15,707 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:15,722 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:15,723 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:15] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:15,725 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:15,733 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:15,733 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:15] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:15,755 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:15,770 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:15,771 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:15,772 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:15] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:15,785 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:15,786 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:15] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:15,802 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:15,811 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:15,811 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:15,812 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:15] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:15,825 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:15,827 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:15] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:15,828 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:15,831 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:15,845 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:15,856 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:15,863 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:15,864 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:15] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:15,865 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:15,874 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:15,875 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:15] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:15,887 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:15,887 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:15] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:15,889 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:15] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:17,758 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:17,773 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:17,774 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:17] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:17,775 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:17,786 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:17,787 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:17] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:17,835 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:17,845 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:17,853 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:17,867 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:17,868 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:17] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:17,869 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:17,870 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:17] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:17,886 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:17,889 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:17,891 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:17] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:17,905 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:17,906 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:17] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:17,914 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:17,921 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:17,921 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:17] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:17,927 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:17,932 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:17,936 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:17,946 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:17,946 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:17] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:17,947 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:17] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:17,947 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:17,958 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:17,958 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:17] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:19,813 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:19,825 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:19,826 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:19] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:19,829 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:19,844 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:19,845 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:19] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:19,907 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:19,919 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:19,920 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:19] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:19,938 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:19,952 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:19,954 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:19] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:19,955 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:19,965 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:19,973 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:19,990 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:19,990 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:19,992 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:19] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:19,993 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:19,994 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:19] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:20,006 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:20,014 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:20,021 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:20,022 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:20] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:20,024 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:20,033 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:20,033 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:20] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:20,042 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:20,042 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:20] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:20,043 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:20] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:21,875 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:21,890 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:21,891 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:21] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:21,894 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:21,908 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:21,908 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:21] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:21,970 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:21,983 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:21,984 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:21] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:22,001 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:22,006 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:22,006 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:22] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:22,049 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:22,063 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:22,064 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:22] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:22,065 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:22,076 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:22,078 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:22] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:22,081 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:22,089 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:22,095 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:22,107 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:22,108 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:22] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:22,110 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:22] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:22,110 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:22,124 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:22,125 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:22,125 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:22] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:22,134 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:22,134 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:22] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:23,937 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:23,956 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:23,958 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:23] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:23,960 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:23,967 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:23,969 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:23] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:24,029 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:24,042 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:24,043 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:24] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:24,044 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:24,055 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:24,056 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:24] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:24,106 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:24,120 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:24,121 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:24] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:24,122 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:24,133 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:24,133 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:24] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:24,153 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:24,159 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:24,166 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:24,178 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:24,179 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:24] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:24,179 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:24] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:24,188 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:24,195 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:24,200 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:24,209 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:24,209 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:24] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:24,210 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:24] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:26,008 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:26,014 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:26,014 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:26] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:26,023 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:26,029 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:26,030 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:26] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:26,100 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:26,109 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:26,110 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:26] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:26,116 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:26,125 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:26,125 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:26] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:26,179 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:26,185 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:26,190 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:26,200 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:26,200 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:26] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:26,201 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:26] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:26,242 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:26,256 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:26,257 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:26,258 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:26] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:26,259 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:26,269 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:26,270 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:26,279 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:26,281 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:26] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:26,292 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:26,293 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:26] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:26,295 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:26] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:28,066 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:28,072 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:28,073 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:28] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:28,082 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:28,089 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:28,089 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:28] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:28,160 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:28,172 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:28,173 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:28] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:28,175 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:28,186 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:28,188 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:28] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:28,253 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:28,268 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:28,269 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:28,271 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:28] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:28,282 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:28,283 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:28] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:28,314 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:28,323 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:28,323 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:28] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:28,362 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:28,379 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:28,380 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:28,381 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:28] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:28,382 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:28,395 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:28,407 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:28,408 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:28] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:28,409 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:28] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:30,132 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:30,146 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:30,148 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:30] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:30,149 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:30,163 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:30,166 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:30] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:30,225 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:30,238 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:30,239 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:30] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:30,242 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:30,255 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:30,256 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:30] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:30,336 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:30,347 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:30,347 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:30,348 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:30] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:30,362 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:30,364 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:30] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:30,384 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:30,394 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:30,395 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:30] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:30,447 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:30,459 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:30,461 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:30] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:30,462 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:30,474 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:30,480 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:30,488 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:30,488 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:30] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:30,489 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:30] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:32,200 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:32,207 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:32,208 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:32] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:32,215 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:32,221 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:32,222 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:32] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:32,294 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:32,307 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:32,308 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:32] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:32,310 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:32,325 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:32,326 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:32] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:32,404 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:32,419 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:32,420 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:32] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:32,421 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:32,438 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:32,440 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:32] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:32,452 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:32,467 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:32,468 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:32] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:32,513 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:32,523 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:32,524 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:32] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:32,544 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:32,553 - __main__ - INFO - Received prediction request
+2026-01-19 17:30:32,560 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:32,573 - __main__ - INFO - Prediction: Dropout
+2026-01-19 17:30:32,574 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:32] "POST /predict HTTP/1.1" 200 -
+2026-01-19 17:30:32,574 - werkzeug - INFO - 127.0.0.1 - - [19/Jan/2026 17:30:32] "POST /predict HTTP/1.1" 200 -
