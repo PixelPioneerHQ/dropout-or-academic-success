@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-dropout-predictor
+  labels:
+    app: student-dropout-predictor
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: student-dropout-predictor
+  template:
+    metadata:
+      labels:
+        app: student-dropout-predictor
+    spec:
+      containers:
+      - name: predictor
+        image: gcr.io/PROJECT_ID/student-dropout-predictor:v1
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        env:
+        - name: MODEL_PATH
+          value: "/app/models/model.joblib"
+        - name: PORT
+          value: "8080"
+        - name: DEBUG
+          value: "False"
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 10
