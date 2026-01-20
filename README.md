@@ -42,8 +42,10 @@ capstone-2/
 │   ├── download_data.py      # Script to download dataset from Kaggle
 │   ├── train.py              # Script for training the final model
 │   ├── predict.py            # Script for serving predictions via API
-│   ├── test_prediction.py    # Script for testing the prediction service
 │   └── gcp_setup.sh          # Script for setting up GCP deployment
+├── tests/              # Python scripts for testing
+│   ├── test_data_example.json   # Data sample
+│   └── test_prediction.py       # Script for testing the prediction service
 ├── k8s/                # Kubernetes deployment files
 │   ├── deployment.yaml # Deployment configuration
 │   ├── service.yaml    # Service configuration
@@ -128,8 +130,51 @@ python scripts/predict.py
 
 7. Test the prediction service:
 ```bash
-   python scripts/test_prediction.py --url http://localhost:8080
+   python tests/test_prediction.py --url http://localhost:8080
 ```
+8. Or do a Postman test:
+Example prediction request:
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{
+      "Marital status": 1,
+      "Application mode": 1,
+      "Application order": 1,
+      "Course": 9070,
+      "Daytime/evening attendance": 1,
+      "Previous qualification": 1,
+      "Previous qualification (grade)": 175.0,
+      "Nacionality": 2,
+      "Mother's qualification": 15,
+      "Father's qualification": 15,
+      "Mother's occupation": 3,
+      "Father's occupation": 2,
+      "Admission grade": 170.0,
+      "Displaced": 0,
+      "Educational special needs": 0,
+      "Debtor": 0,
+      "Tuition fees up to date": 1,
+      "Gender": 0,
+      "Scholarship holder": 1,
+      "Age at enrollment": 20,
+      "International": 1,
+      "Curricular units 1st sem (credited)": 0,
+      "Curricular units 1st sem (enrolled)": 6,
+      "Curricular units 1st sem (evaluations)": 6,
+      "Curricular units 1st sem (approved)": 6,
+      "Curricular units 1st sem (grade)": 15.2,
+      "Curricular units 1st sem (without evaluations)": 0,
+      "Curricular units 2nd sem (credited)": 0,
+      "Curricular units 2nd sem (enrolled)": 6,
+      "Curricular units 2nd sem (evaluations)": 6,
+      "Curricular units 2nd sem (approved)": 6,
+      "Curricular units 2nd sem (grade)": 14.8,
+      "Curricular units 2nd sem (without evaluations)": 0,
+      "Unemployment rate": 13.9,
+      "Inflation rate": -0.3,
+      "GDP": 0.79
+    }' http://localhost:8080/predict
+```
+![alt text](Postman_Test1.jpg)
 
 ### Docker Setup
 
@@ -145,7 +190,7 @@ docker run -p 8080:8080 student-dropout-predictor:v1
 
 3. Test the containerized service:
 ```bash
-python scripts/test_prediction.py --url http://localhost:8080
+python tests/test_prediction.py --url http://localhost:8080
 ```
 
 ## GCP Deployment
@@ -168,7 +213,7 @@ kubectl get service student-dropout-predictor
 
 3. Test the deployed service:
 ```bash
-python scripts/test_prediction.py --url http://<EXTERNAL_IP>
+python tests/test_prediction.py --url http://<EXTERNAL_IP>
 ```
 
 ## API Documentation

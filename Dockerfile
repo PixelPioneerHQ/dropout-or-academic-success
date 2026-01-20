@@ -17,7 +17,7 @@ COPY scripts/ /app/scripts/
 RUN mkdir -p /app/logs
 
 # Set environment variables
-ENV MODEL_PATH=/app/models/model.joblib
+ENV MODEL_PATH=/app/models/best_model_gradient_boosting.joblib
 ENV PORT=8080
 ENV PYTHONUNBUFFERED=1
 
