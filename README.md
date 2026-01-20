@@ -88,7 +88,7 @@ The project implements:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/student-dropout-prediction.git
+git clone https://github.com/PixelPioneerHQ/dropout-or-academic-success.git
 cd student-dropout-prediction
 ```
 
