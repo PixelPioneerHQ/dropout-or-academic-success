@@ -110,12 +110,12 @@ Our comprehensive EDA reveals deep insights into student dropout patterns:
 
 ### 📊 **Model Performance Comparison**
 
-| Model | Accuracy | F1-Score (Macro) | Precision | Recall | Training Time |
-|-------|----------|------------------|-----------|---------|---------------|
-| Logistic Regression | 74.2% | 0.7156 | 0.7334 | 0.7112 | 2s |
-| Random Forest | 76.8% | 0.7534 | 0.7689 | 0.7445 | 15s |
-| **🏆 Gradient Boosting (Tuned)** | **78.0%** | **0.7756** | **0.7823** | **0.7701** | **45s** |
-| XGBoost | 77.1% | 0.7612 | 0.7734 | 0.7567 | 35s |
+| Model | Accuracy | F1-Score (Macro) | Precision | Recall | 
+|-------|----------|------------------|-----------|---------|
+| Logistic Regression | 74.2% | 0.7156 | 0.7334 | 0.7112 |
+| Random Forest | 76.8% | 0.7534 | 0.7689 | 0.7445 |
+| **🏆 Gradient Boosting (Tuned)** | **78.0%** | **0.7756** | **0.7823** | **0.7701** |
+| XGBoost | 77.1% | 0.7612 | 0.7734 | 0.7567 |
 
 ### 🎖️ **Best Model: Tuned Gradient Boosting**
 - **Final Accuracy**: 78.04% on test set
