@@ -5,9 +5,9 @@
 set -e
 
 # Configuration
-PROJECT_ID="student-dropout-predictor"  # Replace with your GCP project ID
-REGION="us-central1"
-ZONE="us-central1-a"
+PROJECT_ID="pnj-sp-op"  # Replace with your GCP project ID
+REGION="asia-southeast1"
+ZONE="asia-southeast1-a"
 CLUSTER_NAME="student-dropout-cluster"
 IMAGE_NAME="student-dropout-predictor"
 IMAGE_TAG="v1"

@@ -192,6 +192,20 @@ docker run -p 8080:8080 student-dropout-predictor:v1
 ```bash
 python tests/test_prediction.py --url http://localhost:8080
 ```
+4. Test on web ui:
+With http://localhost:8080/predict/batch:
+   Sample data: [
+      {
+         "student1": data1
+      },
+      {
+         "student2": data2
+      },
+      {
+         "student3": data3
+      },...
+   ]
+![alt text](local_web_ui_batch_predict_test.jpg)
 
 ## GCP Deployment
 
@@ -201,9 +215,88 @@ Quick deployment steps:
 
 1. Set up GCP project and enable APIs:
 ```bash
+   gcloud auth login
+```
+# Edit gcp_setup.sh
+```bash
 cd scripts
 ./gcp_setup.sh
 ```
+# Or manualys setup step by step
+      
+## Step 1: Set Up GCP Project
+
+### 1. Create a new GCP project or use an existing one:
+
+```bash
+# Create a new project
+gcloud projects create [your-gcp-project-id] --name="Student Dropout Predictor"
+
+# Set the project as active
+gcloud config set project [your-gcp-project-id]
+```
+
+### 2. Enable the required APIs:
+
+```bash
+# Enable Container Registry API
+gcloud services enable containerregistry.googleapis.com
+
+# Enable Kubernetes Engine API
+gcloud services enable container.googleapis.com
+```
+## Step 2: Create a GKE Cluster
+
+Create a Kubernetes cluster in GCP:
+
+```bash
+# Create a cluster with 2 nodes
+gcloud container clusters create student-dropout-cluster \
+    --zone asia-southeast1-a \
+    --num-nodes 2 \
+    --machine-type e2-standard-2
+```
+
+Get credentials for kubectl:
+
+```bash
+gcloud container clusters get-credentials student-dropout-cluster --zone asia-southeast1-a
+```
+
+## Step 3: Build and Push Docker Image
+
+### 1. Build the Docker image:
+
+```bash
+# Navigate to the project root directory
+cd /path/to/capstone-2
+
+# Build the Docker image
+docker build -t asia-southeast1-docker.pkg.dev/[your-gcp-project-id]/student-dropout-predictor/student-dropout-predictor:v1 .
+```
+### 2. Push the image to Google Container Registry:
+
+```bash
+# Configure Docker to use gcloud as a credential helper
+gcloud auth configure-docker
+
+# Push the image
+docker push asia-southeast1-docker.pkg.dev/[your-gcp-project-id]/student-dropout-predictor/student-dropout-predictor:v1
+```
+## Step 4: Update Kubernetes Manifests
+
+### run as administrator
+```bash
+gcloud components install kubectl
+```
+
+Update the `deployment.yaml` file to use your GCP project ID:
+
+```bash
+# Replace PROJECT_ID with your actual project ID
+sed -i "s/[your-gcp-project-id]/student-dropout-predictor/g" k8s/deployment.yaml
+```
+
 
 2. Access the deployed service:
 ```bash
@@ -215,7 +308,8 @@ kubectl get service student-dropout-predictor
 ```bash
 python tests/test_prediction.py --url http://<EXTERNAL_IP>
 ```
-
+![alt text](test_predict_on_cloud.png)
+![alt text](test_predict_on_cloud2.png)
 ## API Documentation
 
 The prediction service exposes the following endpoints:
@@ -226,6 +320,8 @@ The prediction service exposes the following endpoints:
 - **POST /predict**: Makes a prediction for a single student
 - **POST /predict/batch**: Makes predictions for multiple students
 
+   ## Test /health
+   ![alt text](cloud_deployment.jpg)
 Example prediction request:
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{
@@ -234,15 +330,11 @@ curl -X POST -H "Content-Type: application/json" -d '{
   ...
 }' http://localhost:8080/predict
 ```
-
+![alt text](cloud_deployment.jpg)
 ## Results
 
-The model achieves the following performance metrics:
 
-- Accuracy: 0.XX
-- F1 Score (macro): 0.XX
-
-For detailed model performance and feature importance analysis, see the [notebook](notebook/student_dropout_modeling.py).
+For detailed model performance and feature importance analysis, see the [notebook](notebook/student_dropout_analysis.py).
 
 ## Business Impact
 

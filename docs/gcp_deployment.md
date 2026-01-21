@@ -41,7 +41,7 @@ Create a Kubernetes cluster in GCP:
 ```bash
 # Create a cluster with 2 nodes
 gcloud container clusters create student-dropout-cluster \
-    --zone us-central1-a \
+    --zone asia-southeast1-a \
     --num-nodes 2 \
     --machine-type e2-standard-2
 ```
@@ -49,7 +49,7 @@ gcloud container clusters create student-dropout-cluster \
 Get credentials for kubectl:
 
 ```bash
-gcloud container clusters get-credentials student-dropout-cluster --zone us-central1-a
+gcloud container clusters get-credentials student-dropout-cluster --zone asia-southeast1-a
 ```
 
 ## Step 3: Build and Push Docker Image
@@ -61,7 +61,7 @@ gcloud container clusters get-credentials student-dropout-cluster --zone us-cent
 cd /path/to/capstone-2
 
 # Build the Docker image
-docker build -t gcr.io/student-dropout-predictor/student-dropout-predictor:v1 .
+docker build -t asia-southeast1-docker.pkg.dev/pnj-sp-op/student-dropout-predictor/student-dropout-predictor:v1 .
 ```
 
 2. Push the image to Google Container Registry:
@@ -71,16 +71,21 @@ docker build -t gcr.io/student-dropout-predictor/student-dropout-predictor:v1 .
 gcloud auth configure-docker
 
 # Push the image
-docker push gcr.io/student-dropout-predictor/student-dropout-predictor:v1
+docker push asia-southeast1-docker.pkg.dev/pnj-sp-op/student-dropout-predictor/student-dropout-predictor:v1
 ```
 
 ## Step 4: Update Kubernetes Manifests
+
+# run as administrator
+```bash
+gcloud components install kubectl
+```
 
 Update the `deployment.yaml` file to use your GCP project ID:
 
 ```bash
 # Replace PROJECT_ID with your actual project ID
-sed -i "s/PROJECT_ID/student-dropout-predictor/g" k8s/deployment.yaml
+sed -i "s/pnj-sp-op/student-dropout-predictor/g" k8s/deployment.yaml
 ```
 
 ## Step 5: Deploy to Kubernetes
