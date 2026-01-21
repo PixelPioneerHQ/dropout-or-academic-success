@@ -334,7 +334,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
 
 ## Results
 
-For detailed model performance and feature importance analysis, see the [notebook](notebook/student_dropout_analysis.py).
+For detailed model performance and feature importance analysis, see the [notebook](notebook/student_dropout_analysis.ipynb).
 ![alt text](Model_performance_comparision.png)
 ![alt text](top_feature_xgboost.png)
 ## Business Impact
