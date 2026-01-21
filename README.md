@@ -309,7 +309,7 @@ kubectl get service student-dropout-predictor
 python tests/test_prediction.py --url http://<EXTERNAL_IP>
 ```
 ![alt text](test_predict_on_cloud.png)
-![alt text](test_predict_on_cloud2.png)
+![alt text](test_predict_on_cloud_2.png)
 ## API Documentation
 
 The prediction service exposes the following endpoints:
@@ -330,12 +330,13 @@ curl -X POST -H "Content-Type: application/json" -d '{
   ...
 }' http://localhost:8080/predict
 ```
-![alt text](cloud_deployment.jpg)
+![alt text](cloud_deploy_test_predict.jpg)
+
 ## Results
 
-
 For detailed model performance and feature importance analysis, see the [notebook](notebook/student_dropout_analysis.py).
-
+![alt text](Model_performance_comparision.png)
+![alt text](top_feature_xgboost.png)
 ## Business Impact
 
 Based on our analysis, implementing this model with appropriate interventions can provide an ROI of over 300%. For detailed calculations and sensitivity analysis, see [Business Impact Analysis](docs/business_impact.md).
