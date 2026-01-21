@@ -189,11 +189,14 @@ docker run -p 8080:8080 student-dropout-predictor:v1
 ```
 
 3. Test the containerized service:
+
 ```bash
 python tests/test_prediction.py --url http://localhost:8080
 ```
 4. Test on web ui:
+
 With http://localhost:8080/predict/batch:
+
    Sample data: [
       {
          "student1": data1
@@ -205,6 +208,7 @@ With http://localhost:8080/predict/batch:
          "student3": data3
       },...
    ]
+   
 ![alt text](local_web_ui_batch_predict_test.jpg)
 
 ## GCP Deployment
@@ -296,13 +300,40 @@ Update the `deployment.yaml` file to use your GCP project ID:
 # Replace PROJECT_ID with your actual project ID
 sed -i "s/[your-gcp-project-id]/student-dropout-predictor/g" k8s/deployment.yaml
 ```
+## Step 5: Deploy to Kubernetes
 
+Apply the Kubernetes manifests:
+
+```bash
+# Apply deployment
+kubectl apply -f k8s/deployment.yaml
+
+# Apply service
+kubectl apply -f k8s/service.yaml
+
+# Apply HPA
+kubectl apply -f k8s/hpa.yaml
+```
+
+Check the deployment status:
+
+```bash
+# Check deployment status
+kubectl get deployments
+
+# Check pods
+kubectl get pods
+
+# Check service
+kubectl get services
+```
 
 2. Access the deployed service:
 ```bash
 # Get the external IP
 kubectl get service student-dropout-predictor
 ```
+![alt text](cloud_web_ui.jpg)
 
 3. Test the deployed service:
 ```bash
@@ -322,7 +353,9 @@ The prediction service exposes the following endpoints:
 
    ## Test /health
    ![alt text](cloud_deployment.jpg)
+
 Example prediction request:
+
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{
   "feature1": value1,
@@ -330,6 +363,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
   ...
 }' http://localhost:8080/predict
 ```
+
 ![alt text](cloud_deploy_test_predict.jpg)
 
 ## Results
